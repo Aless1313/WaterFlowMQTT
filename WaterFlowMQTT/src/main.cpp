@@ -127,6 +127,11 @@ void loop() {
     Serial.println(out);
     Serial.print(b);                                     //Estado de valvula
     
+    String flujo = String(flowRate, 3); 
+    String to_Send = flujo;
+    to_Send.toCharArray(msg, 25);
+    client.publish("values", msg);
+    Serial.println("Enviado a topico");  
     
   }
 
