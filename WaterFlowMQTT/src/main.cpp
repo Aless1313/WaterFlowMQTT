@@ -55,6 +55,7 @@ void IRAM_ATTR pulseCounter(){
 }
 
 void setup() {
+  Serial.begin(9600);
    // Conéctate a la red Wi-Fi
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
@@ -126,7 +127,7 @@ void loop() {
     Serial.print("bytes = ");
     Serial.println(out);
     Serial.print(b);                                     //Estado de valvula
-    
+
     String flujo = String(flowRate, 3); 
     String to_Send = flujo;
     to_Send.toCharArray(msg, 25);
